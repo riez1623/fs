@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>First Love - Book Style</title>
+<style>
+  body {
+    margin: 0;
+    background: #fdf9f3;
+    font-family: 'Georgia', serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+  }
+  header {
+    margin: 15px;
+    font-size: 1.3rem;
+    font-weight: bold;
+  }
+  #device-picker {
+    margin-bottom: 10px;
+  }
+  #device-picker button {
+    margin: 0 6px;
+    padding: 8px 18px;
+    border: none;
+    background: #ccc;
+    cursor: pointer;
+    font-weight: bold;
+    border-radius: 5px;
+    transition: background 0.3s;
+  }
+  #device-picker button.active,
+  #device-picker button:hover {
+    background: #7f5a25;
+    color: white;
+  }
+
+  #book-container {
+    background: #fff8e1;
+    border: 2px solid #b38946;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    width: 90vw;
+    max-width: 900px;
+    height: 75vh;
+    max-height: 600px;
+    position: relative;
+    display: flex;
+    overflow: hidden;
+  }
+
+  /* Mobile: single page */
+  #book-container.mobile {
+    flex-direction: column;
+  }
+  #book-container.mobile #page-left {
+    width: 100%;
+    height: 100%;
+    padding: 30px 30px;
+    overflow: hidden;
+    user-select: text;
+    box-sizing: border-box;
+  }
+  #book-container.mobile #page-right,
+  #middle-divider {
+    display: none;
+  }
+
+  /* Desktop: double pages */
+  #book-container.desktop {
+    flex-direction: row;
+  }
+  #book-container.desktop #page-left,
+  #book-container.desktop #page-right {
+    width: 50%;
+    height: 100%;
+    padding: 30px 40px;
+    overflow: hidden;
+    user-select: text;
+    box-sizing: border-box;
+  }
+  #middle-divider {
+    position: absolute;
+    width: 4px;
+    background: #b38946;
+    top: 20px;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 2px;
+  }
+
+  #page-left, #page-right {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #4a3c1a;
+    white-space: pre-wrap;
+  }
+
+  /* Navigation */
+  #navigation {
+    margin: 15px 0 30px 0;
+  }
+  #navigation button {
+    padding: 10px 24px;
+    margin: 0 10px;
+    border-radius: 6px;
+    border: none;
+    background: #7f5a25;
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.3s;
+  }
+  #navigation button:disabled {
+    background: #c2b7a0;
+    cursor: not-allowed;
+  }
+  #navigation button:hover:not(:disabled) {
+    background: #a06c32;
+  }
+</style>
+</head>
+<body>
+
+<header>First Love - Book Style</header>
+
+<div id="device-picker">
+  <button id="btn-mobile" class="active">Mobile</button>
+  <button id="btn-desktop">Tablet/Desktop</button>
+</div>
+
+<div id="book-container" class="mobile">
+  <div id="page-left"></div>
+  <div id="middle-divider"></div>
+  <div id="page-right"></div>
+</div>
+
+<div id="navigation">
+  <button id="prev-btn" disabled>Previous</button>
+  <button id="next-btn">Next</button>
+</div>
+
+<script>
+  // Full story text (put your full story here)
+  const fullStory = `About the Author
+
+Written by a passionate young storyteller sharing their bittersweet first experience of love, loss, and learning. This narrative captures the raw emotion of youth and the beauty of connection.
+
+It all started when I was just laying on my bed. I was so bored—my friends were all busy. The others were doing school activities while some were just playing. I was really bored and thought I could talk to a new person, maybe make a new friend. I always thought having new friends was a good idea.
+
+I asked my friend named Ahron if he had any friends I could talk to. I also told him I wanted to talk to a girl haha. He told me about this girl named Ciara. I searched for her socials and finally found her. I started talking to her and wow—she's so kind, sweet, and friendly.
+
+We started talking, asking each other about hobbies, getting to know each other. I already felt comfortable around her. She’s just so fun to talk to.
+
+After a few more weeks, we had gotten to know each other very well. We knew each other's birthdays, favorite foods, favorite colors. We kept on talking like there was no tomorrow.
+
+After a few more months, I realized I had feelings for Ciara. I confessed. She told me she liked me as well, so I courted her.
+
+My friends thought Ciara and I should meet up. I thought it was a bad idea. I mean, we’d only started talking for a few months and now we’re gonna meet up?
+
+I was scared. I was scared because I knew I was ugly. I told her I didn’t want to meet up. I told her I was scared of judgment, scared she would leave me. She reassured me, saying, “Don’t worry, I don’t care about looks. All I want is your personality.”
+
+The night before we met, I was both excited and scared. After school, I went to the meet-up place with my other friends. It was very traffic. Ciara and Ahron were waiting at a convenience store. I arrived late because of traffic. I saw her—Ciara sitting on a bench—and I just stood there, looking at her gorgeous, pretty, perfect face.
+
+When none of us were making a move, Ahron pushed me in front of Ciara. I fell onto the same bench where she was sitting. I stood up and was about to sit down again, but before I could, Ciara hugged me. I hugged her back.
+
+I was nervous. That was the first girl I had ever hugged. We talked for minutes—about how we were, how school was. Then, she randomly gave me her hair tie. She said, “Take good care of it. I’ll give that to you so that whenever you miss me, just hold on to it.”
+
+I was so glad. I hugged her.
+
+We went inside the convenience store. I was still shy, so I just talked to Ahron. Then he asked me, “Why aren’t you talking to her, bro?” I didn’t answer. I couldn’t—not with Ciara right behind me. While I was laughing it off, Ciara hugged me from behind. I felt butterflies. I was really blushing—no lies.
+
+After buying snacks, we looked for a spot to hang out. While we were crossing the road, Mary held my hand. I definitely fell even harder. It was my first time holding a girl’s hand. Her hands were soft—I didn’t want to let go.
+
+We arrived and ate the snacks. After a few minutes, Jacob had to go, leaving me and Mary alone. We waved goodbye to Ahron. Then it was just us.
+
+We talked about random things. We sat there for hours—eating, talking, watching the sunset. We were holding hands, leaning on each other. It was the best day of my life. Eventually, Mary had to go home before dark.
+
+I led her to the bus station. I hugged her and she got on the bus. I waved goodbye. I smiled all the way home, thinking about everything that happened.
+
+When I got home, I texted her and asked if she got home safe. She responded quickly—yes. We talked for minutes and went to sleep.
+
+I had a good sleep that night. So good I even dreamed about what happened that day. I woke up happy. I wished it could all happen again.
+
+I wanted to meet her again, but she had strict parents. She only found a good excuse to meet that first time. She said we could maybe meet again in a few weeks.
+
+It didn’t matter much. I was just happy I met her and could still talk to her, even if only through texting.
+
+After a few more months, we had a healthy relationship. Even with small problems, we always found ways to solve them.
+
+One day, she told me something. She said her old crush texted her, asking to meet. She told me their story—they liked each other in grade 3, but her mom found out and transferred her to another school.
+
+I told Ciara it was fine to meet him. I didn’t mind, though deep down I was jealous. I played games to try and forget.
+
+A few days later, she grew distant. Cold. I felt the spark vanishing.
+
+A few weeks later, she told me she got back with him. I was devastated. I cried all night. I wondered what I did wrong, what I did to deserve it.
+
+Days later, Ciara blocked me on all socials. I wanted to end myself.
+
+Then, she unblocked me. I said, “I still love you,” thinking she wouldn’t reply—but she did.
+
+We talked for a few minutes. I asked if we could meet one last time, not expecting her to agree—but she did.
+
+The day came. I saw her from afar and walked toward her. I wanted to hug her, but I was too shy—Ahron was there. He asked if I had anything to say, but I was speechless.
+
+When he left, Ciara said she couldn’t stay long. When she was about to leave, I hugged her tight. I didn’t want to let go. She hugged back and said, “It’s okay.”
+
+People saw us hugging in public. They said we looked cute. I was about to cry.
+
+When she left, I sobbed. I regretted not saying anything when I was with her.
+
+And yeah… after that day, we didn’t talk anymore.
+
+Maybe she was the right person, just at the wrong time.
+
+Or maybe we weren’t meant to be at all.
+
+First love has to be the worst.`;
+
+  // Split story into sentences (simple split, not perfect but works for this)
+  function splitIntoSentences(text) {
+    return text.match(/[^.!?]+[.!?]+|[^.!?]+$/g).map(s => s.trim());
+  }
+
+  // Group sentences into pages of 2 sentences each
+  function groupSentences(sentences, perPage = 2) {
+    let pages = [];
+    for(let i = 0; i < sentences.length; i += perPage) {
+      pages.push(sentences.slice(i, i + perPage).join(' '));
+    }
+    return pages;
+  }
+
+  // Elements
+  const pageLeft = document.getElementById('page-left');
+  const pageRight = document.getElementById('page-right');
+  const bookContainer = document.getElementById('book-container');
+  const prevBtn = document.getElementById('prev-btn');
+  const nextBtn = document.getElementById('next-btn');
+  const btnMobile = document.getElementById('btn-mobile');
+  const btnDesktop = document.getElementById('btn-desktop');
+
+  let device = 'mobile'; // default
+  let pages = [];
+  let currentPage = 0; // page index for mobile = single page; desktop = two pages shown (left and right)
+
+  // Initialize pages
+  pages = groupSentences(splitIntoSentences(fullStory), 2);
+
+  // Render function to update pages based on device and currentPage
+  function render() {
+    if (device === 'mobile') {
+      bookContainer.className = 'mobile';
+      pageRight.style.display = 'none';
+      pageLeft.style.display = 'block';
+      pageLeft.textContent = pages[currentPage] || '';
+    } else {
+      bookContainer.className = 'desktop';
+      pageRight.style.display = 'block';
+      // On desktop, show two pages side-by-side:
+      // currentPage and currentPage + 1
+      pageLeft.textContent = pages[currentPage] || '';
+      pageRight.textContent = pages[currentPage + 1] || '';
+    }
+    updateButtons();
+  }
+
+  // Update navigation button states
+  function updateButtons() {
+    if (device === 'mobile') {
+      prevBtn.disabled = currentPage === 0;
+      nextBtn.disabled = currentPage === pages.length - 1;
+    } else {
+      // On desktop, last page index allowed is pages.length - 2 (since we show two pages)
+      prevBtn.disabled = currentPage === 0;
+      nextBtn.disabled = currentPage >= pages.length - 2;
+    }
+  }
+
+  // Navigation button handlers
+  prevBtn.onclick = () => {
+    if (device === 'mobile') {
+      if (currentPage > 0) currentPage--;
+    } else {
+      if (currentPage > 0) currentPage -= 2;
+    }
+    render();
+  };
+  nextBtn.onclick = () => {
+    if (device === 'mobile') {
+      if (currentPage < pages.length - 1) currentPage++;
+    } else {
+      if (currentPage < pages.length - 2) currentPage += 2;
+    }
+    render();
+  };
+
+  // Device toggle buttons
+  btnMobile.onclick = () => {
+    if (device !== 'mobile') {
+      device = 'mobile';
+      currentPage = 0;
+      btnMobile.classList.add('active');
+      btnDesktop.classList.remove('active');
+      render();
+    }
+  };
+  btnDesktop.onclick = () => {
+    if (device !== 'desktop') {
+      device = 'desktop';
+      // Make currentPage even for two-page layout start
+      currentPage = 0;
+      btnDesktop.classList.add('active');
+      btnMobile.classList.remove('active');
+      render();
+    }
+  };
+
+  // Initial render
+  render();
+</script>
+
+</body>
+  </html>
