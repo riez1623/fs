@@ -5,27 +5,226 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>I'd still choose you</title>
   <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Roboto&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css" />
+  <style>
+    body, html {
+      margin: 0; padding: 0; height: 100%;
+      font-family: 'Roboto', sans-serif;
+      background: #fdf6e3;
+      color: #333;
+      overflow: hidden;
+    }
+    /* Intro Screen Styles */
+    #intro {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 0 20px;
+      box-sizing: border-box;
+      background: #fdf6e3;
+      position: relative;
+    }
+    #intro p {
+      font-size: 1.3em;
+      margin-bottom: 30px;
+      color: #b04e4e;
+      font-weight: 600;
+      line-height: 1.4;
+    }
+    #intro button {
+      background: #b04e4e;
+      border: none;
+      color: white;
+      font-size: 1.5em;
+      padding: 12px 30px;
+      border-radius: 8px;
+      cursor: pointer;
+      user-select: none;
+      transition: background 0.3s ease;
+    }
+    #intro button:hover {
+      background: #8a3939;
+    }
+    
+    /* Book Container hidden initially */
+    #book-container {
+      display: none;
+      padding: 20px;
+      height: 100vh;
+      box-sizing: border-box;
+      overflow-y: auto;
+    }
+
+    h1 {
+      font-family: 'Great Vibes', cursive;
+      text-align: center;
+      font-size: 3em;
+      margin-bottom: 30px;
+      color: #b04e4e;
+      text-shadow: 1px 1px 2px #a13a3a;
+    }
+    .book {
+      display: flex;
+      justify-content: center;
+      align-items: stretch;
+      max-width: 900px;
+      margin: 0 auto;
+      border: 5px solid #b04e4e;
+      background: white;
+      box-shadow: 0 10px 25px rgba(176, 78, 78, 0.4);
+      border-radius: 12px;
+      overflow: hidden;
+      position: relative;
+    }
+    .page {
+      width: 50%;
+      padding: 30px 40px;
+      box-sizing: border-box;
+      border-left: 2px solid #b04e4e;
+      font-size: 1.1em;
+      line-height: 1.6;
+      white-space: pre-wrap;
+    }
+    .page:first-child {
+      border-left: none;
+    }
+    .middle-line {
+      position: absolute;
+      top: 20px;
+      bottom: 20px;
+      left: 50%;
+      width: 4px;
+      background: #b04e4e;
+      transform: translateX(-50%);
+      border-radius: 2px;
+      box-shadow: 0 0 8px #b04e4e88;
+    }
+    .buttons {
+      text-align: center;
+      margin-top: 30px;
+      user-select: none;
+    }
+    button.nav-btn {
+      background: #b04e4e;
+      border: none;
+      color: white;
+      font-size: 1.5em;
+      padding: 10px 20px;
+      margin: 0 15px;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+      user-select: none;
+    }
+    button.nav-btn:hover {
+      background: #8a3939;
+    }
+  </style>
 </head>
 <body>
+  
+  <!-- Intro Screen -->
   <div id="intro">
-    <h1>I'd still choose you</h1>
-    <button id="read-btn">Read</button>
-    <p id="recommendation">Recommended for tablet/PC.<br>If you're using a phone, turn to landscape for the best experience.</p>
+    <p>Recommended for tablet/PC.<br>If you're using a phone, turn to landscape for the best experience.</p>
+    <button id="start-btn">Okay Riez</button>
   </div>
 
-  <div id="book-section">
+  <!-- Book Content -->
+  <div id="book-container">
+    <h1>I'd still choose you</h1>
     <div class="book">
       <div class="page" id="left-page"></div>
       <div class="middle-line"></div>
       <div class="page" id="right-page"></div>
     </div>
     <div class="buttons">
-      <button class="nav" id="prev">&lt;</button>
-      <button class="nav" id="next">&gt;</button>
+      <button id="prev" class="nav-btn">&lt;</button>
+      <button id="next" class="nav-btn">&gt;</button>
     </div>
   </div>
 
-  <script src="script.js"></script>
+  <script>
+    const intro = document.getElementById('intro');
+    const bookContainer = document.getElementById('book-container');
+    const startBtn = document.getElementById('start-btn');
+
+    // Book pages content array (your story)
+    const pages = [
+      `It all started when i was just laying on my bed, i was so bored, my friends were all busy, the others were doing school activities while others were just playing.  I was really bored and i thought i could talk to a new person or a new friend, i always thought having new friends was always a good idea.`,
+      `I then asked my friend named Ahron if he had some friends that i could talk to, i also told him that i wanted to talk to a girl haha, well he told me about this girl, her name was Ciara. Of course i started searching for her social, then i finally found it,  i started talking to her and wow. she's so kind, sweet and friendly.`,
+      `We started talking, asking each other's hobbies, we were getting to know each other already. While we were talking, i think i was already feel comfortable around her. She's just so fun to talk to.`,
+      `After a few more weeks, we've gotten to know each other very well.  We knew each other's birthdays, favorite food, favorite color. We kept on talking like there was no tomorrow.`,
+      `After a few more months, i figured that i had feelings for mary. I confessed. She told me that she likes me as well, so i courted her.`,
+      `My friends thought me and Ciara should meet up. I really did thought that it was a bad idea, i mean we only started talking for a few months and now were gonna meet up?.`,
+      `I was scared. Im scared because i know my self that im ugly. I told her i didnt wanna meet up, i told her i was scared, i was scared of judgment. I was scared shes gonna leave me. She then told me "Dont worry, I dont care about looks, all i want is your personality".  She really reassured me,  she made me know that i had nothing to be scared of.`,
+      `The night before we met, i was excited and scared at the same time.  After school, me and my other friends went to the meet up place, it was very traffic, Ciara and Ahron was waiting for us on a convenience store. I arrived late because of the stupid traffic, then yeah, i saw her, Ciara was just sitting on a bench and i just stood there, looking at her gorgeous, pretty, perfect face.`,
+      `When none of us were making a move, Ahron pushed me in front of Ciara. I fell on the same bench where mary was sitting\ni was standing up and was about to sit down as well, but when i was about to sit down, Ciara hugged me, I hugged her back.`,
+      `I was nervous since that was the first ever girl that i've hugged.`,
+      `We talked there for minutes, talking about how we were, how was school and stuff. After a few minutes she randomly gave me her hairtie, she said "Take good care of it, i'll give that to you so that whenever you miss me just hold on to that hairtie".\nI was so glad and hugged her.`,
+      `After that, we went inside the convenience store, I was still shy towards her so i just talked to Ahron while we were inside, then Ahron asked me "Why aren't you talking to her bro?"\nI didn't wanna answer, i cant just tell the reason why, Ciara was literally behind me. While i was just laughing it off, Ciara hugged me from behind, I felt butterflies, i was really blushing that time, no lies.`,
+      `After we bought some snacks, we went outside and looked for a spot to hangout. While we were crossing the road, Ciara held my hand, I definitely fell even harder towards her, It was my first time holding a woman's hands. Her hands were soft, i didn't wanna let go.`,
+      `We finally arrived and ate all the snacks we bought,  After a few minutes, Ahron had to go, leaving me and Ciara alone, we said goodbye to Ahron,  waving goodbye while he walks away.`,
+      `Me and Ciara talked about some literally random stuff. We sat there eating, talking for hours till sunset, we watched the sunset, we were holding hands, sitting, leaning onto each other. It was the best day in my entire life.  After a few more minutes, Ciara had to go since she needs to get home before dark.`,
+      `I led her to the bus station, I hugged her and she got into the bus, i waved her goodbye as the bus leaves.`,
+      `I went home as well since it was getting dark. While i was riding the bus, i cant help but smile and think about the things that happen that day.`,
+      `When i got home, I texted her, asking if she got home safe, She responded quickly, saying "Yes". We talked for minutes and we went to sleep.`,
+      `I really had a good sleep that night, it was so good that i even dreamed about what happened that day. I woke up happy, i wished all of that happened again.`,
+      `I wanted to meet her again, but she had strict parents, she just found a good excuse not to meet up, but we still talked. A few weeks later, i was thinking if i should keep going or stop. i really wanted to keep going.`,
+      `Few months later, i figured out something. I was not in love with Ciara anymore, i was in love with "someone else". Someone that i would never regret loving. Someone that loves me back too.`
+    ];
+
+    let currentPage = 0;
+    const leftPage = document.getElementById('left-page');
+    const rightPage = document.getElementById('right-page');
+    const prevBtn = document.getElementById('prev');
+    const nextBtn = document.getElementById('next');
+
+    function renderPages() {
+      leftPage.textContent = pages[currentPage] || "";
+      rightPage.textContent = pages[currentPage + 1] || "";
+      // Disable prev button if at start
+      prevBtn.disabled = currentPage === 0;
+      // Disable next button if at end
+      nextBtn.disabled = currentPage + 2 >= pages.length;
+    }
+
+    prevBtn.addEventListener('click', () => {
+      if (currentPage > 0) {
+        currentPage -= 2;
+        renderPages();
+      }
+    });
+
+    nextBtn.addEventListener('click', () => {
+      if (currentPage + 2 < pages.length) {
+        currentPage += 2;
+        renderPages();
+      }
+    });
+
+    startBtn.addEventListener('click', async () => {
+      // Request fullscreen
+      const elem = document.documentElement;
+      try {
+        if (elem.requestFullscreen) {
+          await elem.requestFullscreen();
+        } else if (elem.webkitRequestFullscreen) { /* Safari */
+          await elem.webkitRequestFullscreen();
+        } else if (elem.msRequestFullscreen) { /* IE11 */
+          await elem.msRequestFullscreen();
+        }
+      } catch (err) {
+        console.warn("Fullscreen request denied or failed:", err);
+      }
+      
+      // Hide intro, show book
+      intro.style.display = 'none';
+      bookContainer.style.display = 'block';
+      
+      renderPages();
+    });
+  </script>
 </body>
 </html>
