@@ -1,0 +1,18 @@
+/* Middle divider line */
+#middle-divider {
+  position: absolute;
+  width: 4px;
+  background: #b38946; /* golden/brownish line */
+  top: 20px;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 2px;
+  display: none; /* hide by default */
+  z-index: 10;
+}
+
+/* Show the line only on desktop */
+#book-container.desktop #middle-divider {
+  display: block;
+}
