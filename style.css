@@ -1,0 +1,121 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Roboto', sans-serif;
+  background: #fdf6e3;
+  color: #333;
+  overflow: hidden;
+}
+
+.intro-screen,
+.book-section {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: #fdf6e3;
+}
+
+.intro-title {
+  font-family: 'Great Vibes', cursive;
+  font-size: 3em;
+  color: #b04e4e;
+  text-shadow: 1px 1px 2px #a13a3a;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.read-button {
+  background: #b04e4e;
+  border: none;
+  color: white;
+  font-size: 1.5em;
+  padding: 10px 20px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.read-button:hover {
+  background: #8a3939;
+}
+
+.recommendation {
+  position: absolute;
+  bottom: 20px;
+  font-size: 0.9em;
+  color: #555;
+  text-align: center;
+}
+
+.book {
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  max-width: 900px;
+  margin: 0 auto;
+  border: 5px solid #b04e4e;
+  background: white;
+  box-shadow: 0 10px 25px rgba(176, 78, 78, 0.4);
+  border-radius: 12px;
+  overflow: hidden;
+  position: relative;
+}
+
+.page {
+  width: 50%;
+  padding: 30px 40px;
+  box-sizing: border-box;
+  border-left: 2px solid #b04e4e;
+  font-size: 1.1em;
+  line-height: 1.6;
+  white-space: pre-wrap;
+}
+
+.page:first-child {
+  border-left: none;
+}
+
+.middle-line {
+  position: absolute;
+  top: 20px;
+  bottom: 20px;
+  left: 50%;
+  width: 4px;
+  background: #b04e4e;
+  transform: translateX(-50%);
+  border-radius: 2px;
+  box-shadow: 0 0 8px #b04e4e88;
+}
+
+.buttons {
+  text-align: center;
+  margin-top: 30px;
+}
+
+button.nav {
+  background: #b04e4e;
+  border: none;
+  color: white;
+  font-size: 1.5em;
+  padding: 10px 20px;
+  margin: 0 15px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  user-select: none;
+}
+
+button.nav:hover {
+  background: #8a3939;
+}
+
+.book-section {
+  display: none;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: 20px;
+  overflow: auto;
+}
