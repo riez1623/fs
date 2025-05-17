@@ -1,53 +1,70 @@
 const pages = [
-  `It all started when I was just laying on my bed...`, // You know the full story content—include the whole one you already finalized.
-  `I then asked my friend named Ahron...`,
-  `...`,
-  `First love has to be the worst, but if I die and get to live again, I'd still choose you.`,
+  `It all started when i was just laying on my bed, i was so bored, my friends were all busy, the others were doing school activities while others were just playing.  I was really bored and i thought i could talk to a new person or a new friend, i always thought having new friends was always a good idea.`,
+  `I then asked my friend named Ahron if he had some friends that i could talk to, i also told him that i wanted to talk to a girl haha, well he told me about this girl, her name was Ciara. Of course i started searching for her social, then i finally found it,  i started talking to her and wow. she's so kind, sweet and friendly.`,
+  `We started talking, asking each other's hobbies, we were getting to know each other already. While we were talking, i think i was already feel comfortable around her. She's just so fun to talk to.`,
+  `After a few more weeks, we've gotten to know each other very well.  We knew each other's birthdays, favorite food, favorite color. We kept on talking like there was no tomorrow.`,
+  `After a few more months, i figured that i had feelings for mary. I confessed. She told me that she likes me as well, so i courted her.`,
+  `My friends thought me and Ciara should meet up. I really did thought that it was a bad idea, i mean we only started talking for a few months and now were gonna meet up?.`,
+  `I was scared. Im scared because i know my self that im ugly. I told her i didnt wanna meet up, i told her i was scared, i was scared of judgment. I was scared shes gonna leave me. She then told me "Dont worry, I dont care about looks, all i want is your personality".  She really reassured me,  she made me know that i had nothing to be scared of.`,
+  `The night before we met, i was excited and scared at the same time.  After school, me and my other friends went to the meet up place, it was very traffic, Ciara and Ahron was waiting for us on a convenience store. I arrived late because of the stupid traffic, then yeah, i saw her, Ciara was just sitting on a bench and i just stood there, looking at her gorgeous, pretty, perfect face.`,
+  `When none of us were making a move, Ahron pushed me in front of Ciara. I fell on the same bench where mary was sitting\ni was standing up and was about to sit down as well, but when i was about to sit down, Ciara hugged me, I hugged her back.`,
+  `I was nervous since that was the first ever girl that i've hugged.`,
+  `We talked there for minutes, talking about how we were, how was school and stuff. After a few minutes she randomly gave me her hairtie, she said "Take good care of it, i'll give that to you so that whenever you miss me just hold on to that hairtie".\nI was so glad and hugged her.`,
+  `After that, we went inside the convenience store, I was still shy towards her so i just talked to Ahron while we were inside, then Ahron asked me "Why aren't you talking to her bro?"\nI didn't wanna answer, i cant just tell the reason why, Ciara was literally behind me. While i was just laughing it off, Ciara hugged me from behind, I felt butterflies, i was really blushing that time, no lies.`,
+  `After we bought some snacks, we went outside and looked for a spot to hangout. While we were crossing the road, Ciara held my hand, I definitely fell even harder towards her, It was my first time holding a woman's hands. Her hands were soft, i didn't wanna let go.`,
+  `We finally arrived and ate all the snacks we bought,  After a few minutes, Ahron had to go, leaving me and Ciara alone, we said goodbye to Ahron,  waving goodbye while he walks away.`,
+  `Me and Ciara talked about some literally random stuff. We sat there eating, talking for hours till sunset, we watched the sunset, we were holding hands, sitting, leaning onto each other. It was the best day in my entire life.  After a few more minutes, Ciara had to go since she needs to get home before dark.`,
+  `I led her to the bus station, I hugged her and she got into the bus, i waved her goodbye as the bus leaves.`,
+  `I went home as well since it was getting dark. While i was riding the bus, i cant help but smile and think about the things that happen that day.`,
+  `When i got home, I texted her, asking if she got home safe, She responded quickly, saying "Yes". We talked for minutes and we went to sleep.`,
+  `I really had a good sleep that night, it was so good that i even dreamed about what happened that day. I woke up happy, i wished all of that happened again.`,
+  `I wanted to meet her again, but she had strict parents, she just found a good excuse to meet up with me and said she cant meet me again, she told me that we can meet up maybe in a few weeks.`,
+  `It didn't really matter that much, i was happy i met her and could still talk to her, even though its just through texting.`,
+  `After a few more months, we really had a healthy relationship even though we had small problems, we both keep on finding a way to solve the problems we had.`,
+  `One day, she said something to me. And i wasn't really happy nor mad about it. She told me that her "old crush" texted her and asking her if she wants to meet up. She told me the story about her and her old crush.`,
+  `That guy was a grade 3 classmate of her, and they liked each other, but her mom found out and Ciara transferred in another school, they never talked since then.`,
+  `I told Ciara that it was fine to meet him, i didn't really mind it, although i was really feeling jealous, but i just played some games to try and forget it.`,
+  `A few days after that, she became more distant towards me, she became cold, frozen cold. I was starting to feel like the "spark" is vanishing.`,
+  `After a few weeks, she told me that she got back with that guy.`,
+  `I was really devastated. I cried all night, thinking where i went wrong, thinking what i did to deserve it, thinking where did i go wrong?.`,
+  `A few days later, Ciara blocked me in all my socials.`,
+  `I wanted to end myself.`,
+  `Then,`,
+  `I saw that she unblocked me, and i said i still love you thinking she wouldn't respond. but she did. March 28, i saw that she unblocked me, and i said i still love you thinking she wouldn't respond. but she did.`,
+  `We talked for a few minutes. I asked her if i could meet her one last time, knowing she wouldnt agree. but she did?..`,
+  `Then the day that we would meet up, came. I saw her from afar and walked towards her, i wanted to hug her but i was so shy because Ahron was there. He asked me if i wanted to say something but i was just so speechless.`,
+  `But when he left, Ciara told me she couldnt stay too long. So when she was about to leave i hugged her, tight. i didnt wanna let go, she hugged me too, saying its okay.`,
+  `Then yeah, a lot of people saw us hugging, we were in public and those people were like saying that we were cute, but i was just about to cry.`,
+  `When she left, i was sobbing but i couldnt do anything. I regret not saying anything while i was there with her. And yeah after that day, we didnt talk anymore.`,
+  `Maybe shes the right person but its just the wrong time.`,
+  `Or maybe we werent meant to be at all.`,
+  `First love has to be the worst, but if i die and get to live again, I'd still choose you.`,
   `I'd still choose you, in every world, in every universe, every multiverse, I'd still choose you.`
 ];
 
 let currentPage = 0;
 
-const introScreen = document.getElementById("intro");
-const bookSection = document.getElementById("book-section");
-const readButton = document.getElementById("read-btn");
-
-const leftPage = document.getElementById("left-page");
-const rightPage = document.getElementById("right-page");
-const nextButton = document.getElementById("next");
-const prevButton = document.getElementById("prev");
+const leftPage = document.getElementById('left-page');
+const rightPage = document.getElementById('right-page');
 
 function renderPages() {
   leftPage.textContent = pages[currentPage] || "";
   rightPage.textContent = pages[currentPage + 1] || "";
 }
 
-readButton.addEventListener("click", () => {
-  introScreen.style.display = "none";
-  bookSection.style.display = "flex";
-  renderPages();
-
-  // Request fullscreen
-  const docElm = document.documentElement;
-  if (docElm.requestFullscreen) {
-    docElm.requestFullscreen();
-  } else if (docElm.webkitRequestFullscreen) {
-    docElm.webkitRequestFullscreen();
-  } else if (docElm.msRequestFullscreen) {
-    docElm.msRequestFullscreen();
-  }
-});
-
-nextButton.addEventListener("click", () => {
+document.getElementById('next').addEventListener('click', () => {
   if (currentPage + 2 < pages.length) {
     currentPage += 2;
     renderPages();
   }
 });
 
-prevButton.addEventListener("click", () => {
+document.getElementById('prev').addEventListener('click', () => {
   if (currentPage - 2 >= 0) {
     currentPage -= 2;
     renderPages();
   }
 });
+
+// Initial render
+renderPages();
