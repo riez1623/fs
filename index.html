@@ -5,45 +5,56 @@
   <title>I'd still choose you</title>
   <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
   <style>
-    body {
+    html, body {
       margin: 0;
       padding: 0;
+      height: 100%;
       font-family: sans-serif;
       background-color: #fdf6e3;
       color: #333;
+    }
+
+    #intro {
       display: flex;
       flex-direction: column;
-      align-items: center;
       justify-content: center;
-      height: 100vh;
+      align-items: center;
+      height: 100%;
+      position: relative;
+      text-align: center;
     }
+
     h1 {
       font-family: 'Great Vibes', cursive;
-      font-size: 3em;
+      font-size: 3.5em;
       color: #b04e4e;
       text-shadow: 1px 1px 2px #a13a3a;
       margin-bottom: 20px;
     }
+
     button {
       background: #b04e4e;
       border: none;
       color: white;
       font-size: 1.5em;
-      padding: 10px 20px;
-      border-radius: 6px;
+      padding: 12px 24px;
+      border-radius: 8px;
       cursor: pointer;
+      margin-bottom: 40px;
     }
+
     .note {
       position: absolute;
       bottom: 20px;
-      font-size: 0.9em;
-      text-align: center;
       width: 100%;
+      text-align: center;
+      font-size: 0.9em;
     }
-    .book {
+
+    #book {
       display: none;
       max-width: 900px;
-      margin: 20px;
+      margin: 20px auto;
       padding: 20px;
       border: 5px solid #b04e4e;
       background: white;
@@ -55,38 +66,38 @@
   </style>
 </head>
 <body>
+
   <div id="intro">
     <h1>I'd still choose you</h1>
     <button onclick="startReading()">Read</button>
     <div class="note">
-      Recommend for tablet/pc.<br>
+      Recommend for tablet/PC.<br>
       If you're using a phone, put it in landscape for the best experience.
     </div>
   </div>
 
-  <div id="book" class="book">
+  <div id="book">
     <p>
       It all started when I was just laying on my bed...
-      <!-- Add the rest of your book content here -->
+      <!-- Your book content continues here -->
     </p>
   </div>
 
   <script>
     function startReading() {
-      // Request fullscreen
       const elem = document.documentElement;
       if (elem.requestFullscreen) {
         elem.requestFullscreen();
-      } else if (elem.webkitRequestFullscreen) { /* Safari */
+      } else if (elem.webkitRequestFullscreen) {
         elem.webkitRequestFullscreen();
-      } else if (elem.msRequestFullscreen) { /* IE11 */
+      } else if (elem.msRequestFullscreen) {
         elem.msRequestFullscreen();
       }
 
-      // Hide intro and show book
       document.getElementById('intro').style.display = 'none';
       document.getElementById('book').style.display = 'block';
     }
   </script>
+
 </body>
 </html>
